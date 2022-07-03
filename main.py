@@ -226,6 +226,9 @@ async def init():
                     message.message_id,
                 )
                 save[forwarded.message_id] = user_id
+                if len(save) > 1100:
+                    save.pop(next(iter(save)))
+                print("Message: ", message.message_id ,   "User: ", user_id , len(save))
             except:
                 pass
         else:
